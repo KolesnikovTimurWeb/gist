@@ -16,7 +16,7 @@ export default async function Home() {
       </div>
       <section>
          <div className="space-y-4">
-          {jobs.map((item,index)=>(
+          {jobs.map((item:any)=>(
             <JobListItem job={item} key={item.id}/>
           ))}
         </div>
