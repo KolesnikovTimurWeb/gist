@@ -1,11 +1,12 @@
 
 import prisma from "@/lib/prisma";
-import { Job } from "@prisma/client";
 import Image from "next/image";
 import companyPlaceholderLogo from "@/assets/company-logo-placeholder.png";
 import {BanknoteIcon, Briefcase, Clock, Globe2, MapPin} from "lucide-react"
 import { formatMoney, relativeDate } from "@/lib/utils";
 import Badge from "./Badge";
+import { Job } from "@prisma/client";
+
 interface JobListItemProps{
   job:Job
 }
