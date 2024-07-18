@@ -16,11 +16,11 @@ async function filterJobs(form:FormData) {
    const {q,type, location, remote} = jobFilterSchema.parse(values)
 
    const searchParams = new URLSearchParams({
-      ...(q && {q:q.trim()}),
-      ...(type && {type}),
-      ...(location && {location}),
-      ...(remote && {remote:true}),
-   })
+      ...(q && { q: q.trim() }),
+      ...(type && { type }),
+      ...(location && { location }),
+      ...(remote && { remote: "true" }),
+    });
 
    redirect(`/?${searchParams.toString()}`)
 } 
@@ -40,7 +40,7 @@ export default async function JobFilterSideBar({defaultValues}:JobFilterSideBarP
    
   return (
     <aside className="md:w-[260px] p-4 sticky top-0 bg-background border rounded-lg h-fit ">
-      <form action={filterJobs}>
+      <form action={filterJobs} key={JSON.stringify(defaultValues)}>
          <div className="space-y-4">
             <div className="flex flex-col gap-2">
             <Label htmlFor="q">
