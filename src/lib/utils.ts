@@ -28,6 +28,6 @@ export function toSlug(str: string) {
     .replace(/[^\w-]+/g, "");
 }
 
-export function isAdmin(user: UserResource | User) {
-  return user.publicMetadata?.role === "admin";
-}
+// export function isAdmin(user: UserResource | User) {
+//   return user.publicMetadata?.role === "admin";
+// }

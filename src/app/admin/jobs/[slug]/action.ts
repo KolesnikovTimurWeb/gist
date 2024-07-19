@@ -17,8 +17,9 @@ export async function approveSubmission(
     const jobId = parseInt(formData.get("jobId") as string);
 
     const user = await currentUser();
+    if (!user) {
+     console.log(user)
 
-    if (!user || !isAdmin(user)) {
       throw new Error("Not authorized");
     }
 
