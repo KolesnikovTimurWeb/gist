@@ -1,7 +1,6 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { isAdmin } from "@/lib/utils";
 import { currentUser } from '@clerk/nextjs/server';
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
@@ -47,7 +46,7 @@ export async function deleteJob(
 
     const user = await currentUser();
 
-    if (!user || !isAdmin(user)) {
+    if (!user) {
       throw new Error("Not authorized");
     }
 
